@@ -91,18 +91,73 @@ button[type=submit]:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba
         </div>
         <button type="submit">Sign In</button>
       </form>
-      <div class="notice"><strong>Security note:</strong> This page is currently a front-end interface. Connect it to a real authentication system before using it for production administrator access.</div>
+      <div class="notice"><strong>Secure authentication:</strong> Sign-in is connected to Firebase Authentication. The administrator dashboard and access rules will be connected next.</div>
       <a class="back" href="index.html">← Back to Fitzgerald Home Health Care</a>
     </div>
   </section>
 </main>
+
+
 <script>
-const toggle=document.getElementById('toggle'), pass=document.getElementById('password');
-toggle.addEventListener('click',()=>{const visible=pass.type==='text';pass.type=visible?'password':'text';toggle.textContent=visible?'Show':'Hide'});
-document.getElementById('adminForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  alert('Admin authentication still needs to be connected to the secure backend.');
+const toggle=document.getElementById('toggle');
+const pass=document.getElementById('password');
+toggle.addEventListener('click',()=>{
+  const visible=pass.type==='text';
+  pass.type=visible?'password':'text';
+  toggle.textContent=visible?'Show':'Hide';
 });
 </script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAEb7G5CnpChG-txeC9M0qYniqkaNrx1bk",
+  authDomain: "fitzgerald-home-health-care.firebaseapp.com",
+  projectId: "fitzgerald-home-health-care",
+  messagingSenderId: "945336874532",
+  appId: "1:945336874532:web:8c91018ec1750c76cbcab1"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const form = document.getElementById("adminForm");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const submit = form.querySelector('button[type="submit"]');
+const notice = document.querySelector(".notice");
+
+function setStatus(message, error=false){
+  notice.innerHTML = message;
+  notice.style.borderColor = error ? "rgba(255,100,100,.28)" : "rgba(116,241,239,.13)";
+  notice.style.background = error ? "rgba(255,80,80,.06)" : "rgba(116,241,239,.04)";
+}
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    setStatus("Signed in successfully. Redirecting to the admin dashboard…");
+    setTimeout(() => { window.location.href = "admin-dashboard.html"; }, 700);
+  }
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  submit.disabled = true;
+  submit.textContent = "Signing in…";
+
+  try {
+    await signInWithEmailAndPassword(auth, email.value.trim(), password.value);
+  } catch (error) {
+    let message = "Incorrect email or password.";
+    if (error.code === "auth/too-many-requests") message = "Too many attempts. Please wait a little and try again.";
+    if (error.code === "auth/network-request-failed") message = "Network error. Check your connection and try again.";
+    setStatus(message, true);
+    submit.disabled = false;
+    submit.textContent = "Sign In";
+  }
+});
+</script>
+
 </body>
 </html>

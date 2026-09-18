@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fitzgerald Home Health Care | Supporting Independent Living</title>
+
+  <meta
+    name="description"
+    content="Fitzgerald Home Health Care supports adults in living safe, healthy, and independent lives in their own homes throughout Minnesota."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --navy: #102a43;
+      --navy-dark: #091c2d;
+      --sage: #789b8a;
+      --sage-light: #e8f0eb;
+      --cream: #f8f7f3;
+      --white: #ffffff;
+      --text: #263746;
+      --muted: #667786;
+      --border: rgba(16, 42, 67, 0.10);
+      --shadow: 0 20px 60px rgba(16, 42, 67, 0.10);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 22px 0;
+      transition: all 0.35s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 8px 30px rgba(16, 42, 67, 0.07);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
+      background: var(--navy);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(16, 42, 67, 0.18);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-text strong {
+      font-size: 15px;
+      color: var(--navy);
+      letter-spacing: -0.2px;
+    }
+
+    .logo-text span {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--sage);
+    }
+
+    .nav-cta {
+      background: var(--navy);
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 999px;
+      box-shadow: 0 8px 22px rgba(16, 42, 67, 0.15);
+    }
+
+    .nav-cta:hover {
+      background: var(--navy-dark);
+      color: white !important;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 90px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(120, 155, 138, 0.18), transparent 32%),
+        radial-gradient(circle at 10% 80%, rgba(16, 42, 67, 0.06), transparent 30%),
+        var(--cream);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -250px;
+      bottom: -280px;
+      border-radius: 50%;
+      border: 1px solid rgba(120, 155, 138, 0.25);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .hero-content {
+      animation: fadeUp 0.9s ease forwards;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--sage-light);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--sage);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 6vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      color: var(--navy);
+      max-width: 700px;
+    }
+
+    h1 span {
+      color: var(--sage);
+      font-style: italic;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      margin-top: 27px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-top: 38px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 23px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 12px 28px rgba(16, 42, 67, 0.17);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 17px 35px rgba(16, 42, 67, 0.23);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--navy);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      position: relative;
+      height: 600px;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .hero-card-main {
+      position: absolute;
+      width: 78%;
+      height: 88%;
+      right: 0;
+      top: 5%;
+      border-radius: 38px;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(16, 42, 67, 0.03),
+          rgba(16, 42, 67, 0.2)
+        ),
+        linear-gradient(135deg, #dfe9e3, #b7cfc3);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 65% 30%, rgba(255,255,255,.65), transparent 20%),
+        linear-gradient(130deg, transparent 40%, rgba(255,255,255,.28));
+    }
+
+    .hero-image-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 38px;
+      background:
+        linear-gradient(
+          180deg,
+          transparent 45%,
+          rgba(9, 28, 45, 0.68) 100%
+        );
+    }
+
+    .hero-image-copy {
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-image-copy small {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 10px;
+      opacity: 0.8;
+    }
+
+    .hero-image-copy h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 31px;
+      line-height: 1.1;
+      margin-top: 8px;
+      max-width: 300px;
+    }
+
+    .floating-card {
+      position: absolute;
+      left: 0;
+      bottom: 7%;
+      width: 245px;
+      padding: 23px;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(16px);
+      border-radius: 23px;
+      box-shadow: 0 25px 55px rgba(16,42,67,.15);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .floating-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--sage-light);
+      color: var(--navy);
+      font-size: 19px;
+      margin-bottom: 14px;
+    }
+
+    .floating-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .floating-card p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    /* =========================
+       TRUST BAR
+    ========================= */
+
+    .trust-bar {
+      background: var(--navy);
+      color: white;
+      padding: 22px 0;
+    }
+
+    .trust-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0.92;
+    }
+
+    .trust-check {
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      display: grid;
+      place-items: center;
+      color: #b7d5c5;
+      font-size: 12px;
+    }
+
+    /* =========================
+       MISSION
+    ========================= */
+
+    .section {
+      padding: 120px 0;
+    }
+
+    .mission {
+      background: white;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: var(--sage);
+      margin-bottom: 17px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      color: var(--navy);
+      font-size: clamp(38px, 4vw, 55px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+    }
+
+    .mission-copy p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .mission-card {
+      padding: 38px;
+      border-radius: 28px;
+      background: var(--cream);
+      border: 1px solid rgba(16,42,67,.06);
+      margin-top: 35px;
+    }
+
+    .mission-card h3 {
+      font-family: "Playfair Display", serif;
+      color: var(--navy);
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .mission-card p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services {
+      background: var(--cream);
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 55px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin-top: 17px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid rgba(16,42,67,.06);
+      padding: 30px 25px;
+      border-radius: 24px;
+      transition: all .35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(16,42,67,.09);
+    }
+
+    .service-number {
+      color: var(--sage);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+
+    .service-card h3 {
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      padding: 90px 0;
+      background: white;
+    }
+
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      padding: 75px;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 90% 20%, rgba(120,155,138,.28), transparent 30%),
+        var(--navy);
+      color: white;
+    }
+
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      right: -150px;
+      bottom: -180px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+    }
+
+    .cta-box h2 {
+      position: relative;
+      z-index: 2;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 4vw, 55px);
+      max-width: 620px;
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+
+    .cta-box p {
+      position: relative;
+      z-index: 2;
+      max-width: 570px;
+      margin-top: 17px;
+      color: rgba(255,255,255,.72);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .cta-button {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      margin-top: 30px;
+      background: white;
+      color: var(--navy);
+      padding: 15px 23px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: .3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(0,0,0,.2);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--navy-dark);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr .8fr;
+      gap: 60px;
+      padding-bottom: 50px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.58);
+      max-width: 360px;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-top: 18px;
+    }
+
+    .footer-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: rgba(255,255,255,.75);
+      transition: .25s ease;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 25px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(255,255,255,.38);
+      font-size: 11px;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .hero-visual {
+        height: 480px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: min(100% - 30px, 1180px);
+      }
+
+      h1 {
+        font-size: 50px;
+        letter-spacing: -2px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        height: 420px;
+      }
+
+      .hero-card-main {
+        width: 83%;
+      }
+
+      .floating-card {
+        width: 210px;
+        padding: 19px;
+      }
+
+      .trust-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        padding: 45px 28px;
+        border-radius: 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">
+        <div class="logo-mark">F</div>
+
+        <div class="logo-text">
+          <strong>Fitzgerald</strong>
+          <span>Home Health Care</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#mission">Our Mission</a>
+        <a href="#contact" class="nav-cta">Get Started</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Serving Minnesota Communities
+          </div>
+
+          <h1>
+            Care that helps people live <span>independently.</span>
+          </h1>
+
+          <p class="hero-description">
+            Fitzgerald Home Health Care partners with adults and their
+            support networks to promote safety, independence, dignity,
+            and a healthier life at home.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              Get Started
+              <span>→</span>
+            </a>
+
+            <a href="tel:9522364565" class="btn btn-secondary">
+              Call 952-236-4565
+            </a>
+          </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+          <div class="hero-card-main">
+
+            <!--
+              IMAGE GOES HERE LATER
+
+              Replace this entire background with a real
+              Fitzgerald Home Health Care photo.
+            -->
+
+            <div class="hero-image-placeholder">
+
+              <div class="hero-image-copy">
+                <small>Fitzgerald Home Health Care</small>
+
+                <h3>
+                  Helping adults thrive where they call home.
+                </h3>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-card">
+
+            <div class="floating-icon">
+              ✦
+            </div>
+
+            <strong>
+              Independence first.
+            </strong>
+
+            <p>
+              Supporting adults as they build confidence,
+              stability, and self-sufficiency.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TRUST BAR -->
+
+    <section class="trust-bar">
+
+      <div class="container trust-inner">
+
+        <div class="trust-item">
+          <span class="trust-check">✓</span>
+          Person-centered support
+        </div>
+
+        <div class="trust-item">
+          <span class="trust-check">✓</span>
+          Community-focused care
+        </div>
+
+        <div class="trust-item">
+          <span class="trust-check">✓</span>
+          Minnesota-based provider
+        </div>
+
+        <div class="trust-item">
+          <span class="trust-check">✓</span>
+          Focused on independence
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MISSION -->
+
+    <section class="section mission" id="mission">
+
+      <div class="container section-grid">
+
+        <div>
+          <div class="section-label">
+            Our Mission
+          </div>
+
+          <h2 class="section-title">
+            A better quality of life starts at home.
+          </h2>
+        </div>
+
+
+        <div class="mission-copy">
+
+          <p>
+            Fitzgerald Home Health Care is committed to promoting
+            and improving the livelihood of adults living in their
+            own homes through partnership and collaboration.
+          </p>
+
+          <p>
+            Our approach is centered around helping people become
+            more self-sufficient while living in a safe and healthy
+            community.
+          </p>
+
+
+          <div class="mission-card">
+
+            <h3>
+              Our vision
+            </h3>
+
+            <p>
+              Helping adults become self-sufficient while living
+              in a safe and healthy community in Minnesota.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="section services" id="services">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-label">
+            What We Provide
+          </div>
+
+          <h2 class="section-title">
+            Support designed around real life.
+          </h2>
+
+          <p>
+            Our services are designed to support adults with
+            the skills, stability, and assistance they need
+            to live successfully in their communities.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <div class="service-card">
+
+            <div class="service-number">
+              01
+            </div>
+
+            <h3>
+              Individual Home Support
+            </h3>
+
+            <p>
+              Personalized support that helps individuals
+              develop and maintain greater independence
+              in their own homes.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">
+              02
+            </div>
+
+            <h3>
+              Family Training
+            </h3>
+
+            <p>
+              Support and training designed to help families
+              confidently participate in the individual's
+              care and development.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">
+              03
+            </div>
+
+            <h3>
+              Night Supervision
+            </h3>
+
+            <p>
+              Support focused on safety and well-being
+              during overnight hours.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">
+              04
+            </div>
+
+            <h3>
+              24-Hour Emergency Services
+            </h3>
+
+            <p>
+              Responsive assistance designed to provide
+              additional support when unexpected situations
+              arise.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta" id="contact">
+
+      <div class="container">
+
+        <div class="cta-box">
+
+          <h2>
+            Let's build a path toward greater independence.
+          </h2>
+
+          <p>
+            Have questions about Fitzgerald Home Health Care
+            or our services? Get in touch with our team.
+          </p>
+
+          <a
+            href="tel:9522364565"
+            class="cta-button"
+          >
+            Call 952-236-4565 →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <div class="logo">
+
+            <div class="logo-mark">
+              F
+            </div>
+
+            <div class="logo-text">
+
+              <strong style="color:white;">
+                Fitzgerald
+              </strong>
+
+              <span style="color:rgba(255,255,255,.45);">
+                Home Health Care
+              </span>
+
+            </div>
+
+          </div>
+
+          <p>
+            Supporting adults in living safe, healthy,
+            and more independent lives in their own homes.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Explore
+          </div>
+
+          <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#mission">Our Mission</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="footer-title">
+            Contact
+          </div>
+
+          <div class="footer-links">
+
+            <a href="tel:9522364565">
+              (952) 236-4565
+            </a>
+
+            <a href="mailto:admin@fitzgeraldhomehealthcare.com">
+              admin@fitzgeraldhomehealthcare.com
+            </a>
+
+            <a href="#">
+              Prior Lake, Minnesota
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Fitzgerald Home Health Care, LLC
+        </span>
+
+        <span>
+          Serving Minnesota
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+
+      if (window.scrollY > 30) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
